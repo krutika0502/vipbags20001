@@ -1,0 +1,20 @@
+{
+  "name": "store-theme-name",
+  "version": "1.0.0",
+  "description": "Shopify template for my store",
+  "main": "index.js",
+  "scripts": {
+    "watch": "theme watch",
+    "deploy": "theme deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/krutika0502/vipbags20001.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krutika0502/vipbags20001/issues"
+  },
+  "homepage": "https://github.com/krutika0502/vipbags20001#readme"
+}
