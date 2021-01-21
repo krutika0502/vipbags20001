@@ -195,8 +195,5 @@
   </ul>
 {{ 'ndnapps-sociallogin.css' | asset_url | stylesheet_tag }}
 {% if shop.customer_accounts_enabled %}{% unless customer  %}{{ 'ndnapps-sociallogin-script.js' | asset_url | script_tag }}{% endunless %}{% endif %}
-
-
-{% include 'rw-js' %}
 </body>
 </html>

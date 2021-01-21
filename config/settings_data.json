@@ -81,7 +81,7 @@
         "type": "collection",
         "settings": {
           "title": "Featured collection",
-          "collection": "",
+          "collection": "winter-collection",
           "grid": 4,
           "rows": 2,
           "show_vendor": false,
