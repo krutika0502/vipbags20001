@@ -140,7 +140,9 @@
           "image-bar-0": {
             "type": "image",
             "settings": {
+              "image": "shopify:\/\/shop_images\/red-handbag-with-gold-detail.jpg",
               "alignment": "center",
+              "link": "shopify:\/\/collections\/all",
               "cta_label": ""
             }
           },
