@@ -236,9 +236,13 @@
                 {% if section.settings.enable_payment_button %}
                   {{ form | payment_button }}
                 {% endif %}
+               
               </div>
             </div>
           {% endform %}
+        
+         <button class ="wishlist-btn" data-customer="{{ customer.id }}" data-product="{{ product.id }}">Wishlist</button>
+        
         </div>
 
         {%- comment -%}
