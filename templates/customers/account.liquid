@@ -1,4 +1,4 @@
-<div class="page-width">
+z<div class="page-width">
   <div class="section-header text-center">
     <h1>{{ 'customer.account.title' | t }}</h1>
     {{ 'layout.customer.log_out' | t | customer_logout_link }}
@@ -28,6 +28,7 @@
                     <a href="{{ order.customer_url }}" class="btn btn--secondary btn--small" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">{{ order.name }}</a>
                   </th>
                   <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | time_tag: format: 'date' }}</td>
+                  <td data-label="{{ 'customer.orders.title' | t }}">{{ order.title }}</td>
                   <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
                   <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
                   <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
