@@ -23,27 +23,22 @@
               </tr>
             </thead>
             <tbody>
-                {% assign protocols_count = '' %}
-					{% for id in customer.orders %}
-<!--   						{{ id }} -->
-    					{% assign protocols_count = protocols_count | append: 'x' %}
-  
-					{% endfor %}
               {% for order in customer.orders %}
                <tr id="{{ order.key }}">
                   <th data-label="{{ 'customer.orders.order_number' | t }}" scope="row">
                     <a href="{{ order.customer_url }}" class="btn btn--secondary btn--small" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">{{ order.name }}</a>
                   </th>
                   <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | time_tag: format: 'date' }}</td>
-                  
-                  {% for line_item in order.line_items %}
-                 
-              
-                 {{ protocols_count.size }}
-<!--                    	<td data-label="{{ 'order.line_items.title' }}">{{ line_item | json }}</td> -->
-                  	<td data-label="{{ 'order.line_items.title' }}">{{ line_item.title }}</td>
-                  <td data-label="{{ 'order.line_items.image' }}">{{ line_item.image | img_url: '100x100' | img_tag }}</td>
-                  {% endfor %} 
+                   {{ order.name }}
+               
+                      {% for line_item in order.line_items %}  
+  {% if order.name != order.name %}
+    <!--                    	<td data-label="{{ 'order.line_items.title' }}">{{ line_item | json }}</td> -->
+                        <td data-label="{{ 'order.line_items.title' | t }}">{{ order.line_items | map: 'title' | join: ',' | json }}</td>
+                      <td data-label="{{ 'order.line_items.image' }}">{{ line_item.image | img_url: '100x100' | img_tag }}</td>
+                       {% endif %}
+                 {% endfor %} 
+                
                   <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
                   <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
                   <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
