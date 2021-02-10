@@ -29,7 +29,7 @@
                     <a href="{{ order.customer_url }}" class="btn btn--secondary btn--small" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">{{ order.name }}</a>
                   </th>
                   <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | time_tag: format: 'date' }}</td>
-<!--                   <td data-label="{{ 'customer.orders.title' | t }}">{{ order.line_items_title }}</td> -->
+<!--                   <td data-label="{{ 'customer.orders.title' | t }}">{{ order.line_items }}</td> -->
                   <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
                   <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
                   <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
@@ -37,8 +37,17 @@
               {% endfor %}       
             </tbody>
           </table>
+      {% for line_item in order.line_items %}
+      {{ line_item }}
+      {% endfor %}   
+      {{ line_item.image | img_url: '100x100' | img_tag }}
       
-      
+      \
+      {% for line_item in order.line_items %}
+      {% for property in line_item.properties %}
+        '{{ property.first }}': '{{ property.last }}'{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    {% endfor %}
 <!--           <p>{{ 'customer.orders.none' | t }}</p> -->
 
         {% endif %}
