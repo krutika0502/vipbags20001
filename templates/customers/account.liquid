@@ -1,4 +1,4 @@
-z<div class="page-width">
+<div class="page-width">
   <div class="section-header text-center">
     <h1>{{ 'customer.account.title' | t }}</h1>
     {{ 'layout.customer.log_out' | t | customer_logout_link }}
@@ -16,7 +16,7 @@ z<div class="page-width">
               <tr>
                 <th scope="col">{{ 'customer.orders.order_number' | t }}</th>
                 <th scope="col">{{ 'customer.orders.date' | t }}</th>
-                <th scope="col">{{ 'customer.orders.line_items_title' | t }}</th>
+<!--                 <th scope="col">{{ 'customer.orders.line_items_title' | t }}</th> -->
                 <th scope="col">{{ 'customer.orders.payment_status' | t }}</th>
                 <th scope="col">{{ 'customer.orders.fulfillment_status' | t }}</th>
                 <th scope="col">{{ 'customer.orders.total' | t }}</th>
@@ -29,7 +29,7 @@ z<div class="page-width">
                     <a href="{{ order.customer_url }}" class="btn btn--secondary btn--small" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">{{ order.name }}</a>
                   </th>
                   <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | time_tag: format: 'date' }}</td>
-                  <td data-label="{{ 'customer.orders.title' | t }}">{{ order.line_items_title }}</td>
+<!--                   <td data-label="{{ 'customer.orders.title' | t }}">{{ order.line_items_title }}</td> -->
                   <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
                   <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
                   <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
@@ -39,7 +39,7 @@ z<div class="page-width">
           </table>
       
       
-          <p>{{ 'customer.orders.none' | t }}</p>
+<!--           <p>{{ 'customer.orders.none' | t }}</p> -->
 
         {% endif %}
         {%- if paginate.pages > 1 -%}
