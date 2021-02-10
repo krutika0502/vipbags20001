@@ -35,15 +35,12 @@
                   </th>
                   <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | time_tag: format: 'date' }}</td>                 
               
-                      {% for line_item in order.line_items %} 
-                
-                 	
-                       	<td data-label="{{ 'order.line_items.title' }}">{{ order.line_items | size }}</td>
-                        <td data-label="{{ 'order.line_items.title' | t }}">{{ order.line_items | map: 'title' | join: ',' | json }}</td>
-                      <td data-label="{{ 'order.line_items.image' }}">{{ line_item.image | img_url: '100x100' | img_tag }}</td>
-                       
-                 {% endfor %} 
-                
+                      {% for line_item in order.line_items %}                                  
+                        {% assign title = order.line_items | map: 'title' | join: ',' | json %} 
+                  		{% assign image = order.line_items | map: 'image' | join: ',' | json | img_url: '100x100' | img_tag %}
+                 	  {% endfor %} 
+                 <td data-label="{{ 'order.line_items.title' | t }}">{{title }}</td>
+                  <td data-label="{{ 'order.line_items.image' }}">{{ image  }}</td>
                   <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
                   <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
                   <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
