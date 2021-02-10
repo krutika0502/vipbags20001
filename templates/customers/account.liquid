@@ -23,20 +23,25 @@
               </tr>
             </thead>
             <tbody>
+              
+              
+              {% assign order_size = customer.orders.size %}
+                 
+                 
               {% for order in customer.orders %}
                <tr id="{{ order.key }}">
                   <th data-label="{{ 'customer.orders.order_number' | t }}" scope="row">
                     <a href="{{ order.customer_url }}" class="btn btn--secondary btn--small" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">{{ order.name }}</a>
                   </th>
-                  <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | time_tag: format: 'date' }}</td>
-                   {{ order.name }}
-               
-                      {% for line_item in order.line_items %}  
-  {% if order.name != order.name %}
-    <!--                    	<td data-label="{{ 'order.line_items.title' }}">{{ line_item | json }}</td> -->
+                  <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | time_tag: format: 'date' }}</td>                 
+              
+                      {% for line_item in order.line_items %} 
+                
+                 	
+                       	<td data-label="{{ 'order.line_items.title' }}">{{ order.line_items | size }}</td>
                         <td data-label="{{ 'order.line_items.title' | t }}">{{ order.line_items | map: 'title' | join: ',' | json }}</td>
                       <td data-label="{{ 'order.line_items.image' }}">{{ line_item.image | img_url: '100x100' | img_tag }}</td>
-                       {% endif %}
+                       
                  {% endfor %} 
                 
                   <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
