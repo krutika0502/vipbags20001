@@ -6,6 +6,7 @@
     {%- if section.settings.tags_enable and collection.all_tags.size > 0 -%}
       {%- assign is_filter_by_available = true -%}
     {%- endif -%}
+  
 
     {% if section.settings.show_collection_image and collection.image %}
       <div class="collection-hero">
@@ -206,6 +207,7 @@
   </header>
 
   <div class="page-width" id="Collection">
+    
     {% if section.settings.layout == 'grid' %}
       {% case section.settings.grid %}
       {% when 2 %}
