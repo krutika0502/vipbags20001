@@ -1,6 +1,0 @@
-development:
-  password: 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
-  theme_id: "118172090541"
-  store: https://bmibagsvip.myshopify.com
-  ignore_files: 
-    - config/settings_data.json
