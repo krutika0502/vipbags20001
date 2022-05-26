@@ -2871,7 +2871,15 @@
       "1541414200176",
       "1541559977022",
       "1541566560488"
-    ]
+    ],
+    "blocks": {
+      "6326688704511773616": {
+        "type": "shopify:\/\/apps\/advance_reorder_repeat_order\/blocks\/adv-block\/2dd67710-95db-4aa2-93c7-6a6c6f57d67f",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
   },
   "presets": {
     "Default": {
